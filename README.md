@@ -1,6 +1,8 @@
 # LeetCode
 ### This is a public repo where i will share all the solution of LeetCode problems which i have solved.
-
+#### [My LeetCode Profile Here](https://leetcode.com/notrealmateen/)
+#### [My HackerRank Profile Here](https://www.hackerrank.com/notrealmateen/)
+#### Follow me on Social Media Platforms.
 
 <a href="https://github.com/notrealmateen" target="_blank">
 <img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
