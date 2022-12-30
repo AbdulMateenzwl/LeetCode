@@ -23,5 +23,11 @@ public:
             }
         }
         return start;
+
+
+        //      Alternate Solution
+        // for (int i = 1; i + 1 < A.size(); ++i)
+        //     if (A[i] > A[i + 1])
+        //         return i;
     }
 };
