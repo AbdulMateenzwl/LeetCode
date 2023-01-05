@@ -10,13 +10,14 @@ class Solution
 public:
     vector<int> twoSum(vector<int> &nums, int target)
     {
+        //      Solution 1
         // for (int i = 0; i < nums.size(); i++)
         //     for (int m = i + 1; m < nums.size(); m++)
         //         if (nums[i] + nums[m] == target)
         //             return {i, m};
         // return {};
 
-        // solution 2
+        //      Solution 2
         unordered_map<int, int> m;
         for (int i = 0; i < nums.size(); i++)
         {
