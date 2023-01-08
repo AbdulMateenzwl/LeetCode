@@ -12,6 +12,7 @@ public:
     {
         int start = 0, end = nums.size() - 1, res = -1;
         vector<int> ans;
+        // getting starting point
         while (start <= end)
         {
             int mid = start + (end - start) / 2;
@@ -27,6 +28,7 @@ public:
         }
         ans.push_back(res);
         start = 0, end = nums.size() - 1, res = -1;
+        // getting ending point
         while (start <= end)
         {
             int mid = start + (end - start) / 2;
