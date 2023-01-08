@@ -1,10 +1,4 @@
-/*
- * @lc app=leetcode id=69 lang=cpp
- *
- * [69] Sqrt(x)
- */
 
-// @lc code=start
 class Solution
 {
 public:
@@ -25,4 +19,4 @@ public:
         return right;
     }
 };
-// @lc code=end
+
