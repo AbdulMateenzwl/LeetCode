@@ -10,7 +10,6 @@ class Solution
 public:
     int search(vector<int> &vtr, int target)
     {
-        
         int start = 0;
         int end = vtr.size()-1;
         int mid = 0;
