@@ -1,10 +1,4 @@
-/*
- * @lc app=leetcode id=1 lang=cpp
- *
- * [1] Two Sum
- */
 
-// @lc code=start
 class Solution
 {
 public:
@@ -29,4 +23,3 @@ public:
         return {};
     }
 };
-// @lc code=end

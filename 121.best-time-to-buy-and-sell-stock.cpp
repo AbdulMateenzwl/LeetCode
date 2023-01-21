@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=121 lang=cpp
- *
- * [121] Best Time to Buy and Sell Stock
- */
-
-// @lc code=start
 class Solution
 {
 public:
@@ -19,4 +12,3 @@ public:
         return sell;
     }
 };
-// @lc code=end

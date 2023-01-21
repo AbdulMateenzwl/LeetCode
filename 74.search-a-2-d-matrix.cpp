@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=74 lang=cpp
- *
- * [74] Search a 2D Matrix
- */
-
-// @lc code=start
 class Solution
 {
 public:
@@ -35,4 +28,3 @@ public:
         return false;
     }
 };
-// @lc code=end
