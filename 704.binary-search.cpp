@@ -11,14 +11,13 @@ public:
     int search(vector<int> &vtr, int target)
     {
         int start = 0;
-        int end = vtr.size()-1;
-        int mid = 0;
+        int end = vtr.size() - 1;
         while (start <= end)
         {
-            mid = (start + end) / 2;
-            if (target == vtr[mid])
+            int mid = start + (end - start) / 2;
+            if (vtr[mid] == target)
                 return mid;
-            if (target < vtr[mid])
+            else if (vtr[mid] > target)
                 end = mid - 1;
             else
                 start = mid + 1;
