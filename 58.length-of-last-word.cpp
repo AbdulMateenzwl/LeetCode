@@ -8,21 +8,17 @@
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        int count=0;
-        bool flag=false;
-        for(int i=s.length()-1;i>=0;i--)
-        {
-            if(s[i] != ' ')
-            {
-                count++;
-                flag=true;
+        int length =0;
+        int started = false;
+        for(int i =s.length()-1;i>=0;i--){
+            if (s[i]!=' ') {
+                length++;
+                started=true;
             }
-            else if(flag)
-            {
-                return count;
-            }
+            else if(started)
+                return length;
         }
-        return count;
+        return length;
     }
 };
 // @lc code=end
