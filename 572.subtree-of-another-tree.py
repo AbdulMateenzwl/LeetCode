@@ -1,7 +1,7 @@
 #
-# @lc app=leetcode id=100 lang=python3
+# @lc app=leetcode id=572 lang=python3
 #
-# [100] Same Tree
+# [572] Subtree of Another Tree
 #
 
 # @lc code=start
@@ -12,6 +12,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if not root:
+            return False
+
+        if self.isSameTree(root,subRoot):
+            return True
+
+        return self.isSubtree(root.right,subRoot) or self.isSubtree(root.left,subRoot)
+
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
             return True
@@ -19,6 +28,5 @@ class Solution:
                 return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
         else:
             return False
-            
 # @lc code=end
 
