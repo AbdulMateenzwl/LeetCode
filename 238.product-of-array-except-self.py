@@ -7,28 +7,27 @@
 # @lc code=start
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        result = [0] * len(nums)
-        totalProduct = 1
-        zeroCount = 0
+        product = 1
+        zero = False
 
         for num in nums:
             if num is not 0:
-                totalProduct*=num
+                product *= num
+            elif zero is True:
+                return [0] * len(nums)
             else:
-                zeroCount+=1
-            
-        if zeroCount > 1:
-            return result
+                zero = True
 
-        for i in range(len(result)):
-            if nums[i] is not 0:
-                if zeroCount > 0:
-                    result[i] = 0
-                else:
-                    result[i] = totalProduct // nums[i]
+        arr = [0] * len(nums)
+        for i in range(len(nums)):
+            if nums[i] is 0:
+                arr[i] = product
+            elif zero:
+                arr[i] = 0
             else:
-                result[i] = totalProduct
+                arr[i] = product // nums[i]
 
-        return result
+        return arr
+
 # @lc code=end
 
