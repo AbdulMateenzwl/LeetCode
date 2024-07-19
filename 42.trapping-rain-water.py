@@ -1,29 +1,17 @@
-#
-# @lc app=leetcode id=42 lang=python3
-#
-# [42] Trapping Rain Water
-#
-
-# @lc code=start
 class Solution:
-    def trap(self, height: List[int]) -> int:
-        ans = 0
-        maxHeight = 0
-        start ,end = 0 , len(height) - 1
-        
-        while start < end:
-            if height[start] < height[end]:
-                if(maxHeight > height[start]):
-                    ans += maxHeight - height[start]
-                maxHeight = max(maxHeight, height[start])
-                start +=1
+    def trap(self, heights: List[int]) -> int:
+        maxH = 0
+        l, r = 0, len(heights) - 1
+        ans = 0 
+
+        while l <= r:
+            if heights[l] <= heights[r]:
+                maxH = max(heights[l], maxH)
+                ans += maxH - heights[l]  
+                l += 1
             else:
-                if(maxHeight > height[end]):
-                    ans += maxHeight - height[end]
-                maxHeight = max(maxHeight, height[end])
-                end -= 1
+                maxH = max(heights[r], maxH)
+                ans +=  maxH - heights[r]  
+                r -= 1
 
         return ans
-        
-# @lc code=end
-
