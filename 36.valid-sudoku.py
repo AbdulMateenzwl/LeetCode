@@ -7,36 +7,23 @@
 # @lc code=start
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        for row in board:
-            sett = set()
-            for val in row:
-                if val is not '.' and val in sett:
-                    return False
-                sett.add(val)
+        arr = [[set() for _ in range(9)] for _ in range(3)]
+        for i in range(9):
+            for j in range(9):
+                charr = board[i][j]
+                if charr == '.': 
+                    continue
 
-        for i in range( len(board) ):
-            sett = set()
-            for j in range( len(board[i])):
-                if board[j][i] is not '.' and board[j][i] in sett:
-                    return False
-                sett.add(board[j][i])       
+                boxIndex = (i // 3)*3 + (j // 3)
 
-        countx = 0 
-        while countx < 3:
-            county = 0
-            while county < 3:
-                sett = set()
-                for i in range(3):
-                    for j in range(3):
-                        if board[3*countx + i][3*county + j] is not '.' and board[3*countx + i][3*county + j] in sett:
-                            return False
-                        print(sett)
-                        sett.add(board[3*countx + i][3*county + j])
-                print(sett)
-                county+=1
-            countx+=1
+                if charr in arr[0][i] or charr in arr[1][j] or charr in arr[2][boxIndex]:
+                    return False
+
+                arr[0][i].add(charr)
+                arr[1][j].add(charr)
+                arr[2][boxIndex].add(charr)
         
         return True
-        
+
 # @lc code=end
 
