@@ -1,27 +1,17 @@
-#
-# @lc app=leetcode id=49 lang=python3
-#
-# [49] Group Anagrams
-#
-
-# @lc code=start
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dic: Dict[str, List[int]] = {}
-        result = []
-
+        arr = []
+        dic = {}
+        idx = 0
 
         for s in strs:
-            sortedStr = str(sorted(s))
-            if sortedStr in dic:
-                dic[sortedStr].append(s)
+            ss = str(sorted(s))
+            if ss not in dic:
+                dic[ss] = idx
+                arr.append([])
+                arr[idx].append(s)
+                idx += 1
             else:
-                dic[sortedStr] = [s]
-        
+                arr[dic[ss]].append(s)
 
-        for key in dic:
-            result.append(dic[key])
-
-        return result    
-# @lc code=end
-
+        return arr
