@@ -1,24 +1,16 @@
-#
-# @lc app=leetcode id=118 lang=python3
-#
-# [118] Pascal's Triangle
-#
-
-# @lc code=start
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        if numRows == 0:
-            return []
+        ans = []
+        ans.append([1])
         if numRows == 1:
-            return [[1]]
-        
-        prevRows = self.generate(numRows - 1)
-        newRow = [1] * numRows
-        
-        for i in range(1, numRows - 1):
-            newRow[i] = prevRows[-1][i - 1] + prevRows[-1][i]
-        
-        prevRows.append(newRow)
-        return prevRows
-# @lc code=end
+            return ans
 
+        k = 1
+        while k < numRows:
+            arr = [1]
+            for i in range(1,k,1):
+                arr.append(ans[k-1][i-1]+ans[k-1][i])
+            arr.append(1)
+            ans.append(arr)
+            k+=1
+        return ans
