@@ -1,14 +1,4 @@
 class Solution {
-    // public boolean isAnagram(String s, String t) {
-    // return sortString(s).equals(sortString(t));
-    // }
-
-    // public String sortString(String s){
-    // char[] arr = s.toCharArray();
-    // Arrays.sort(arr);
-    // return new String(arr);
-    // }
-
     public boolean isAnagram(String s, String t) {
         char[] freq = new char[26];
 

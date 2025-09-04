@@ -1,36 +1,30 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int num : nums) {
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(pair -> ((Pair) pair).first).reversed()); // Explicit casting here
+        PriorityQueue<Pair> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            pq.offer(new Pair(entry.getValue(), entry.getKey()));
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            maxHeap.add(new Pair(entry.getValue(), entry.getKey()));
         }
 
-        int[] result = new int[k];
-        int index = 0;
-
+        int[] ans = new int[k];
         while (k > 0) {
-            result[index] = pq.poll().second;
-            index++;
+            ans[k - 1] = maxHeap.poll().val();
             k--;
         }
 
-        return result;
+        return ans;
     }
+}
 
-    static class Pair {
-        public int first;
-        public int second;
-
-        public Pair(int first, int second) {
-            this.first = first;
-            this.second = second;
-        }
+record Pair(int key, int val) implements Comparable<Pair> {
+    @Override
+    public int compareTo(Pair other) {
+        return Integer.compare(this.key, other.key);
     }
 }
