@@ -3,33 +3,31 @@ class Solution {
         int product = 1;
         boolean zero = false;
 
-        for(int i = 0;i< nums.length;i++){
-            if(nums[i] == 0){
-                if(zero == false){
-                    zero =true;
-                }
-                else{
+        for (int num : nums) {
+            if (num == 0) {
+                if (zero == true) {
                     return new int[nums.length];
                 }
-            }
-            else{
-                product *= nums[i];
-            }
-        }
-
-        int[] res = new int[nums.length];
-
-        for(int i = 0;i< nums.length;i++){
-            if(zero == true){
-                if(nums[i] == 0){
-                    res[i] = product;
-                }
-            }
-            else{
-                res[i] = product / nums[i];
+                zero = true;
+            } else {
+                product *= num;
             }
         }
 
-        return res;
+        int[] ans = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+
+            if (num == 0) {
+                ans[i] = product;
+            } else if (zero) {
+                ans[i] = 0;
+            } else {
+                ans[i] = product / num;
+            }
+        }
+
+        return ans;
     }
 }

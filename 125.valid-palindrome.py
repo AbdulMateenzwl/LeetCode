@@ -1,24 +1,11 @@
-#
-# @lc app=leetcode id=125 lang=python3
-#
-# [125] Valid Palindrome
-#
-
-# @lc code=start
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        simple = ''
+        s = s.lower()
 
-        for char in s:
-            if char is ' ':
-                continue
+        newS = ''
 
-            elif (char >= 'a' and char <='z') or (char >= '0' and char <= '9'):
-                simple += char
-            
-            elif char >= 'A' and char <= 'Z':
-                simple += char.lower()
-
-        return simple == simple[::-1]        
-# @lc code=end
-
+        for c in s:
+            if c.isalnum():
+                newS += c
+        
+        return newS == newS[::-1]

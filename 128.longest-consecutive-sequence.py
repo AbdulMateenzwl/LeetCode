@@ -1,23 +1,20 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        if not nums:
-            return 0
-        
-        heapify(nums)
+        sett = set(nums)
 
-        longest = 1
-        length = 1
-        pre  = heappop(nums)
-        while nums:
-            val = heappop(nums)
-            if val == pre:
-                continue
-            elif val == pre + 1:
-                length += 1
-            else:
-                length = 1
-            pre = val
-            longest = max(length, longest)
-        
-        return longest
+        longest = 0
+
+        for num in sett:
+
+            if num - 1 not in sett:
+
+                current_streak = 1
+                current_num = num
+
+                while current_num + 1 in sett:
+                    current_streak += 1
+                    current_num += 1
+                
+                longest = max(longest, current_streak)
             
+        return longest
